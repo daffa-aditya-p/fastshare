@@ -1,15 +1,15 @@
-# FastShare ⚡
+# FastShare 
 
 Kirim file & chat **terenkripsi end-to-end**, tanpa login, tanpa batas.
-Backend **Go** (ringan, satu binary) + frontend **React** (Vite), komunikasi via **WebSocket**.
+Backend Pake **Go** (ringan, satu binary) + frontend **React** (Vite), komunikasi via **WebSocket**.
 
-- 📡 **Beacon proximity** — peer terdekat muncul di radar dengan jarak asli (GPS)
-- 🌍 **Jarak jauh** — share kode room, siapa pun bisa gabung dari mana saja
-- 🔐 **E2E encrypted** — ECDH P-256 + HKDF-SHA256 + AES-256-GCM, server cuma nge-relay ciphertext
-- 💬 **Chat kayak WhatsApp** — grup (semua) atau DM per peer, typing indicator, tanpa batasan jumlah pesan
-- 📁 **File transfer** — streaming chunk 256KB dengan pipelining (8 in-flight), progress bar, verifikasi SHA-256, auto-download
-- 🛡️ **Production-grade** — rate limit per IP, origin check, ping/pong keepalive, slow-consumer protection, urutan chunk ketat, graceful shutdown
-- 📱 **Mobile-ready** — layout tab di HP, installable PWA manifest
+-  **Beacon proximity** — peer terdekat muncul di radar dengan jarak asli (GPS)
+-  **Jarak jauh** — share kode room, siapa pun bisa gabung dari mana saja
+-  **E2E encrypted** — ECDH P-256 + HKDF-SHA256 + AES-256-GCM, server cuma nge-relay ciphertext
+-  **Chat kayak WhatsApp** — grup (semua) atau DM per peer, typing indicator, tanpa batasan jumlah pesan
+-  **File transfer** — streaming chunk 256KB dengan pipelining (8 in-flight), progress bar, verifikasi SHA-256, auto-download
+-  **Production-grade** — rate limit per IP, origin check, ping/pong keepalive, slow-consumer protection, urutan chunk ketat, graceful shutdown
+-  **Mobile-ready** — layout tab di HP, installable PWA manifest
 
 ## Struktur
 
@@ -45,12 +45,6 @@ cd backend && go build -o fastshare.exe . && ./fastshare.exe
 # frontend (dev mode, hot reload, proxy ke :9000)
 cd frontend && npm install && npm run dev     # http://localhost:5173
 ```
-
-**Cloudflare Tunnel** (sudah dikonfigurasi): `config.yml` mengarah `app.daffadev.my.id → localhost:9000`.
-Tinggal jalankan tunnel manager (`~/cloudflared/tunnel.bat`) setelah FastShare hidup.
-WebSocket otomatis jalan via tunnel (wss://).
-
-Env vars backend: `PORT` (default 9000), `FASTSHARE_DIST` (default ../frontend/dist).
 
 ## Cara pakai
 
